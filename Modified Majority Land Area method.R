@@ -1,7 +1,8 @@
 #Purpose: Classify area level data (blocks, block groups, tracts) using modified Majority Land Area method
 #         using different cut-offs for % ungraded (10,20,30,40,50%)
 
-#Reference(s): Krieger N, et al. Am J Epidemiol. 2020 Oct 1;189(10):1065–75.
+#Reference(s) for the original design (not modifications): 
+#              Krieger N, et al. Am J Epidemiol. 2020 Oct 1;189(10):1065–75.
 #              Krieger N, et al. Am J Public Health. 2020 Jul;110(7):1046–53.
 
 
@@ -36,8 +37,7 @@ modmajority_fun <- function(city, HOLCmap, st, counties, yr, cutoff){
   
   majority_calc <- function(areadf){
     
-    #GEOID column name is different depending on year so need to rename so always the same regardless of year pulling
-    #NOTE: this is clunky AF but can't figure out better way to do this for sf (if do it normal way - ends up making it into a list with geometry)
+    #GEOID column name is different depending on year so need to rename so always the same regardless of year pulling - a little clunky bc sf
     geoid_col <- colnames(areadf)[grepl("GEOID",colnames(areadf))]
     GEOID2 <- areadf[geoid_col]
     st_geometry(GEOID2) <- NULL
