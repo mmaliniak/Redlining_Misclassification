@@ -7,7 +7,7 @@
 
 #Applying to: Atlanta, GA HOLC map but could run for any city with HOLC map
 
-#Last updated: 4-24-2022
+#Last updated: 9-15-2022
 
 
 library(tidyverse)
@@ -16,6 +16,7 @@ library(tmap)      # for producing thematic maps
 library(RColorBrewer)
 library(tidycensus)
 library(tigris)
+library(purrr)
 
 
 #read in ATL HOLC map
